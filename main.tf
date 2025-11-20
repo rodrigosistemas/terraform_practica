@@ -14,12 +14,12 @@ provider "azurerm" {
   subscription_id = "c7b5fe30-7539-43a0-be8b-fb6ae63b5c76"
 }
 
-resource "azurerm_resource_group" "rg" {
-  location = "centralus"
-  name = "resources-test"
+variable "rg_name" {
+  type = string
+  default = "resource-group"
 }
 
-resource "azurerm_resource_group" "rg2" {
+resource "azurerm_resource_group" "rg" {
   location = "centralus"
-  name = "resource-test2"
+  name = var.rg_name
 }
